@@ -1,0 +1,11 @@
+// container
+.c-container {
+  @include make-container();
+  max-width: calc(1100px + #{$container-padding-x}*2);
+  width: 100%;
+}
+
+.c-container-full {
+  @include make-container();
+  width: 100%;
+}

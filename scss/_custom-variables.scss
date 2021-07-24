@@ -20,7 +20,7 @@ $yugo: '游ゴシック体', YuGothic, "游ゴシック", "Yu Gothic", 'メイ�
 
 
 // spacer
-$spacer: 0.1rem !default;
+$spacer: 0.1rem;
 $spacers: (
   0: 0,
   4: $spacer * 4,
@@ -53,7 +53,15 @@ $spacers: (
 $grid-breakpoints: (
   xs: 0,
   sp: 767px,
+  tab: 992px,
   // md: 768px,
   // lg: 992px,
   // xl: 1200px,
 );
+
+
+// rfs
+$rfs-base-value: 1.8rem;
+$rfs-breakpoint: 767px;
+$fs-factor: 100;
+$rfs-rem-value: 10;

@@ -3,7 +3,7 @@ $utilities: map-merge(
   $utilities,
   (
     "font-size": (
-      // rfs: true,
+      rfs: true,
       property: font-size,
       class: fs,
       responsive: true,
@@ -100,6 +100,23 @@ $utilities: map-merge(
           (
             noto: $noto,
             noto-serif: $notoSerif
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "line-height": map-merge(
+      map-get($utilities, "line-height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "line-height"), "values"),
+          (
+            md: 1.75
           ),
         ),
       ),

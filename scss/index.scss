@@ -7,21 +7,37 @@
 
 // scss-docs-start import-stack
 // Configuration
+
+
+// Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "bootstrap/functions";
 
+
+// Include any default variable overrides here
 @import "custom-variables";
 
+
+// Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 // @import "bootstrap/utilities";
 
+
+// Include utilities overrides here
 @import "custom-utilities";
 @import "addon-utilities";
+
 
 // Layout & components
 @import "bootstrap/root";
 @import "bootstrap/reboot";
 @import "bootstrap/type";
+
+
+// Include base overrides here
+@import "custom-base";
+
+
 @import "bootstrap/images";
 @import "bootstrap/containers";
 @import "bootstrap/grid";
@@ -55,6 +71,9 @@
 
 // Utilities
 // @import "bootstrap/utilities/api";
+@import "utilities-api-pc-first";
 // scss-docs-end import-stack
 
-@import "utilities-api-pc-first";
+
+// Add additional custom code here
+@import "custom";
