@@ -3,5 +3,10 @@
     "**/bootstrap/**",
     "**/node_modules/**",
     ".vscode/**" 
-]
+  ],
+  "liveSassCompile.settings.formats": [
+    {
+      "savePath": "/css"
+    },
+  ]
 }

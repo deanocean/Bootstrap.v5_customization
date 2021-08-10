@@ -9,3 +9,8 @@
   @include make-container();
   width: 100%;
 }
+
+// Custom
+.u-writing-v {
+  writing-mode: vertical-rl !important;
+}

@@ -7,9 +7,9 @@ $utilities: () !default;
 $utilities: map-merge(
   (
     // scss-docs-start utils-vertical-align
-    "align": (
+    "vertical-align": (
       property: vertical-align,
-      class: u-va,
+      class: map-get($utilities-className, vertical-align),
       values: (
         bl: baseline,
         t: top,
@@ -22,9 +22,8 @@ $utilities: map-merge(
     // scss-docs-end utils-vertical-align
     // scss-docs-start utils-float
     "float": (
-      responsive: true,
-      property: u-fl,
-      class: u-float,
+      property: float,
+      class: map-get($utilities-className, float),
       values: (
         l: left,
         r: right,
@@ -35,7 +34,7 @@ $utilities: map-merge(
     // scss-docs-start utils-overflow
     "overflow": (
       property: overflow,
-      class: u-ov,
+      class: map-get($utilities-className, overflow),
       values: (
         a: auto,
         h: hidden,
@@ -47,9 +46,8 @@ $utilities: map-merge(
     // scss-docs-start utils-display
     "display": (
       responsive: true,
-      print: true,
       property: display,
-      class: u-d,
+      class: map-get($utilities-className, display),
       values: (
         i: inline,
         ib: inline-block,
@@ -65,9 +63,9 @@ $utilities: map-merge(
     ),
     // scss-docs-end utils-display
     // scss-docs-start utils-shadow
-    "shadow": (
+    "box-shadow": (
       property: box-shadow,
-      class: u-bxsh,
+      class: map-get($utilities-className, box-shadow),
       values: (
         null: $box-shadow,
         sm: $box-shadow-sm,
@@ -80,7 +78,7 @@ $utilities: map-merge(
     "position": (
       responsive: true,
       property: position,
-      class: u-pos,
+      class: map-get($utilities-className, position),
       values: (
         s: static,
         r: relative,
@@ -91,27 +89,27 @@ $utilities: map-merge(
     ),
     "top": (
       property: top,
-      class: u-t,
+      class: map-get($utilities-className, top),
       values: $position-values
     ),
     "bottom": (
       property: bottom,
-      class: u-b,
+      class: map-get($utilities-className, bottom),
       values: $position-values
     ),
-    "start": (
+    "left": (
       property: left,
-      class: u-l,
+      class: map-get($utilities-className, left),
       values: $position-values
     ),
-    "end": (
+    "right": (
       property: right,
-      class: u-r,
+      class: map-get($utilities-className, right),
       values: $position-values
     ),
     "translate-middle": (
       property: transform,
-      class: u-translate-middle,
+      class: map-get($utilities-className, translate-middle),
       values: (
         null: translate(-50%, -50%),
         x: translateX(-50%),
@@ -122,7 +120,7 @@ $utilities: map-merge(
     // scss-docs-start utils-borders
     "border": (
       property: border,
-      class: u-bd,
+      class: map-get($utilities-className, border),
       values: (
         null: $border-width solid $border-color,
         0: 0,
@@ -130,15 +128,15 @@ $utilities: map-merge(
     ),
     "border-top": (
       property: border-top,
-      class: u-bd-t,
+      class: map-get($utilities-className, border-top),
       values: (
         null: $border-width solid $border-color,
         0: 0,
       )
     ),
-    "border-end": (
+    "border-right": (
       property: border-right,
-      class: u-bd-r,
+      class: map-get($utilities-className, border-right),
       values: (
         null: $border-width solid $border-color,
         0: 0,
@@ -146,15 +144,15 @@ $utilities: map-merge(
     ),
     "border-bottom": (
       property: border-bottom,
-      class: u-bd-b,
+      class: map-get($utilities-className, border-bottom),
       values: (
         null: $border-width solid $border-color,
         0: 0,
       )
     ),
-    "border-start": (
+    "border-left": (
       property: border-left,
-      class: u-bd-l,
+      class: map-get($utilities-className, border-left),
       values: (
         null: $border-width solid $border-color,
         0: 0,
@@ -162,12 +160,12 @@ $utilities: map-merge(
     ),
     "border-color": (
       property: border-color,
-      class: u-bdc,
+      class: map-get($utilities-className, border-color),
       values: map-merge($theme-colors, ("white": $white))
     ),
     "border-width": (
       property: border-width,
-      class: u-bdw,
+      class: map-get($utilities-className, border-width),
       values: $border-widths
     ),
     // scss-docs-end utils-borders
@@ -175,34 +173,37 @@ $utilities: map-merge(
     // scss-docs-start utils-sizing
     "width": (
       property: width,
-      class: u-w,
+      class: map-get($utilities-className, width),
       values: (
         25: 25%,
+        30: 30%,
+        40: 40%,
         50: 50%,
-        75: 75%,
+        60: 60%,
+        70: 70%,
+        80: 80%,
+        90: 90%,
         100: 100%,
-        auto: auto
+        20rem: 20rem,
+        40rem: 40rem,
+        auto: auto,
+        fit: fit-content
       )
     ),
     "max-width": (
       property: max-width,
-      class: u-maw,
+      class: map-get($utilities-className, max-width),
       values: (100: 100%)
     ),
-    "viewport-width": (
-      property: width,
-      class: u-vw,
-      values: (100: 100vw)
-    ),
-    "min-viewport-width": (
+    "min-width": (
       property: min-width,
-      class: u-min-vw,
+      class: map-get($utilities-className, min-width),
       values: (100: 100vw)
     ),
     "height": (
       responsive: true,
       property: height,
-      class: u-h,
+      class: map-get($utilities-className, height),
       values: (
         25: 25%,
         50: 50%,
@@ -213,17 +214,12 @@ $utilities: map-merge(
     ),
     "max-height": (
       property: max-height,
-      class: u-mih,
+      class: map-get($utilities-className, max-height),
       values: (100: 100%)
     ),
-    "viewport-height": (
-      property: height,
-      class: u-vh,
-      values: (100: 100vh)
-    ),
-    "min-viewport-height": (
+    "min-height": (
       property: min-height,
-      class: u-min-vh,
+      class: map-get($utilities-className, min-height),
       values: (100: 100vh)
     ),
     // scss-docs-end utils-sizing
@@ -232,13 +228,13 @@ $utilities: map-merge(
     "flex": (
       responsive: true,
       property: flex,
-      class: u-fx,
+      class: map-get($utilities-className, flex),
       values: (fill: 1 1 auto)
     ),
     "flex-direction": (
       responsive: true,
       property: flex-direction,
-      class: u-fxd,
+      class: map-get($utilities-className, flex-direction),
       values: (
         r: row,
         c: column,
@@ -249,7 +245,7 @@ $utilities: map-merge(
     "flex-grow": (
       responsive: true,
       property: flex-grow,
-      class: u-fxg,
+      class: map-get($utilities-className, flex-grow),
       values: (
         0: 0,
         1: 1,
@@ -258,7 +254,7 @@ $utilities: map-merge(
     "flex-shrink": (
       responsive: true,
       property: flex-shrink,
-      class: u-fxsh,
+      class: map-get($utilities-className, flex-shrink),
       values: (
         0: 0,
         1: 1,
@@ -267,7 +263,7 @@ $utilities: map-merge(
     "flex-wrap": (
       responsive: true,
       property: flex-wrap,
-      class: u-fxw,
+      class: map-get($utilities-className, flex-wrap),
       values: (
         w: wrap,
         n: nowrap,
@@ -278,13 +274,13 @@ $utilities: map-merge(
       rfs: true,
       responsive: true,
       property: gap,
-      class: u-gap,
+      class: map-get($utilities-className, gap),
       values: $spacers
     ),
     "justify-content": (
       responsive: true,
       property: justify-content,
-      class: u-jc,
+      class: map-get($utilities-className, justify-content),
       values: (
         fs: flex-start,
         fe: flex-end,
@@ -297,7 +293,7 @@ $utilities: map-merge(
     "align-items": (
       responsive: true,
       property: align-items,
-      class: u-ai,
+      class: map-get($utilities-className, align-items),
       values: (
         fs: flex-start,
         fe: flex-end,
@@ -309,7 +305,7 @@ $utilities: map-merge(
     "align-content": (
       responsive: true,
       property: align-content,
-      class: u-ac,
+      class: map-get($utilities-className, align-content),
       values: (
         fs: flex-start,
         fe: flex-end,
@@ -322,7 +318,7 @@ $utilities: map-merge(
     "align-self": (
       responsive: true,
       property: align-self,
-      class: u-as,
+      class: map-get($utilities-className, align-self),
       values: (
         a: auto,
         fs: flex-start,
@@ -335,7 +331,7 @@ $utilities: map-merge(
     "order": (
       responsive: true,
       property: order,
-      class: u-order,
+      class: map-get($utilities-className, order),
       values: (
         first: -1,
         0: 0,
@@ -354,92 +350,92 @@ $utilities: map-merge(
       rfs: true,
       responsive: true,
       property: margin,
-      class: u-m,
+      class: map-get($utilities-className, margin),
       values: map-merge($spacers, (auto: auto))
     ),
     "margin-x": (
       rfs: true,
       responsive: true,
       property: margin-right margin-left,
-      class: u-mx,
+      class: map-get($utilities-className, margin-x),
       values: map-merge($spacers, (auto: auto))
     ),
     "margin-y": (
       rfs: true,
       responsive: true,
       property: margin-top margin-bottom,
-      class: u-my,
+      class: map-get($utilities-className, margin-y),
       values: map-merge($spacers, (auto: auto))
     ),
     "margin-top": (
       rfs: true,
       responsive: true,
       property: margin-top,
-      class: u-mt,
+      class: map-get($utilities-className, margin-top),
       values: map-merge($spacers, (auto: auto))
     ),
-    "margin-end": (
+    "margin-right": (
       rfs: true,
       responsive: true,
       property: margin-right,
-      class: u-mr,
+      class: map-get($utilities-className, margin-right),
       values: map-merge($spacers, (auto: auto))
     ),
     "margin-bottom": (
       rfs: true,
       responsive: true,
       property: margin-bottom,
-      class: u-mb,
+      class: map-get($utilities-className, margin-bottom),
       values: map-merge($spacers, (auto: auto))
     ),
-    "margin-start": (
+    "margin-left": (
       rfs: true,
       responsive: true,
       property: margin-left,
-      class: u-ml,
+      class: map-get($utilities-className, margin-left),
       values: map-merge($spacers, (auto: auto))
     ),
     // Negative margin utilities
     "negative-margin": (
       responsive: true,
       property: margin,
-      class: u-m,
+      class: map-get($utilities-className, negative-margin),
       values: $negative-spacers
     ),
     "negative-margin-x": (
       responsive: true,
       property: margin-right margin-left,
-      class: u-mx,
+      class: map-get($utilities-className, negative-margin-x),
       values: $negative-spacers
     ),
     "negative-margin-y": (
       responsive: true,
       property: margin-top margin-bottom,
-      class: u-my,
+      class: map-get($utilities-className, negative-margin-y),
       values: $negative-spacers
     ),
     "negative-margin-top": (
       responsive: true,
       property: margin-top,
-      class: u-mt,
+      class: map-get($utilities-className, negative-margin-top),
       values: $negative-spacers
     ),
-    "negative-margin-end": (
+    "negative-margin-right": (
       responsive: true,
       property: margin-right,
-      class: u-mr,
+      class: map-get($utilities-className, negative-margin-right),
       values: $negative-spacers
     ),
     "negative-margin-bottom": (
       responsive: true,
       property: margin-bottom,
-      class: u-mb,
+      class: map-get($utilities-className, negative-margin-bottom),
       values: $negative-spacers
     ),
-    "negative-margin-start": (
+    "negative-margin-left": (
       responsive: true,
       property: margin-left,
-      class: u-ml,
+      class: map-get($utilities-className, negative-margin-left),
       values: $negative-spacers
     ),
     // Padding utilities
@@ -447,49 +443,49 @@ $utilities: map-merge(
       rfs: true,
       responsive: true,
       property: padding,
-      class: u-p,
+      class: map-get($utilities-className, padding),
       values: $spacers
     ),
     "padding-x": (
       rfs: true,
       responsive: true,
       property: padding-right padding-left,
-      class: u-px,
+      class: map-get($utilities-className, padding-x),
       values: $spacers
     ),
     "padding-y": (
       rfs: true,
       responsive: true,
       property: padding-top padding-bottom,
-      class: u-py,
+      class: map-get($utilities-className, padding-y),
       values: $spacers
     ),
     "padding-top": (
       rfs: true,
       responsive: true,
       property: padding-top,
-      class: u-pt,
+      class: map-get($utilities-className, padding-top),
       values: $spacers
     ),
-    "padding-end": (
+    "padding-right": (
       rfs: true,
       responsive: true,
       property: padding-right,
-      class: u-pr,
+      class: map-get($utilities-className, padding-right),
       values: $spacers
     ),
     "padding-bottom": (
       rfs: true,
       responsive: true,
       property: padding-bottom,
-      class: u-pb,
+      class: map-get($utilities-className, padding-bottom),
       values: $spacers
     ),
-    "padding-start": (
+    "padding-left": (
       rfs: true,
       responsive: true,
       property: padding-left,
-      class: u-pl,
+      class: map-get($utilities-className, padding-left),
       values: $spacers
     ),
     // scss-docs-end utils-spacing
@@ -497,7 +493,7 @@ $utilities: map-merge(
     // scss-docs-start utils-text
     "font-family": (
       property: font-family,
-      class: u-ff,
+      class: map-get($utilities-className, font-family),
       values: (
         monospace: var(--#{$variable-prefix}font-monospace),
         noto: $noto,
@@ -509,17 +505,21 @@ $utilities: map-merge(
     "font-size": (
       rfs: true,
       property: font-size,
-      class: u-fz,
+      class: map-get($utilities-className, font-size),
+      responsive: true,
       values: $font-sizes
     ),
     "font-style": (
       property: font-style,
-      class: u-fs,
-      values: italic normal
+      class: map-get($utilities-className, font-style),
+      values: (
+        i: italic,
+        n: normal
+      )
     ),
     "font-weight": (
       property: font-weight,
-      class: u-fw,
+      class: map-get($utilities-className, font-weight),
       values: (
         l: $font-weight-light,
         lr: $font-weight-lighter,
@@ -532,19 +532,19 @@ $utilities: map-merge(
     "line-height": (
       responsive: true,
       property: line-height,
-      class: u-lh,
+      class: map-get($utilities-className, line-height),
       values: (
         1: 1,
-        sm: $line-height-sm,
-        base: $line-height-base,
-        md: 1.75,
-        lg: $line-height-lg,
+        1\.25: 1.25,
+        1\.5: 1.5,
+        1\.75: 1.75,
+        2: 2,
       )
     ),
     "text-align": (
       responsive: true,
       property: text-align,
-      class: u-ta,
+      class: map-get($utilities-className, text-align),
       values: (
         l: left,
         r: right,
@@ -553,7 +553,7 @@ $utilities: map-merge(
     ),
     "text-decoration": (
       property: text-decoration,
-      class: u-td,
+      class: map-get($utilities-className, text-decoration),
       values: (
         n: none,
         u: underline,
@@ -562,7 +562,7 @@ $utilities: map-merge(
     ),
     "text-transform": (
       property: text-transform,
-      class: u-tt,
+      class: map-get($utilities-className, text-transform),
       values: (
         l: lowercase,
         u: uppercase,
@@ -571,7 +571,7 @@ $utilities: map-merge(
     ),
     "white-space": (
       property: white-space,
-      class: u-whs,
+      class: map-get($utilities-className, white-space),
       values: (
         n: normal,
         nw: nowrap,
@@ -579,7 +579,7 @@ $utilities: map-merge(
     ),
     "word-wrap": (
       property: word-wrap word-break,
-      class: u-wow,
+      class: map-get($utilities-className, word-wrap),
       values: (b: break-word),
       rtl: false
     ),
@@ -587,7 +587,7 @@ $utilities: map-merge(
     // scss-docs-start utils-color
     "color": (
       property: color,
-      class: u-c,
+      class: map-get($utilities-className, color),
       values: map-merge(
         $theme-colors,
         (
@@ -605,7 +605,7 @@ $utilities: map-merge(
     "background-color": (
       responsive: true,
       property: background-color,
-      class: u-bgc,
+      class: map-get($utilities-className, background-color),
       values: map-merge(
         $theme-colors,
         (
@@ -616,15 +616,15 @@ $utilities: map-merge(
       )
     ),
     // scss-docs-end utils-bg-color
-    "gradient": (
+    "background-image": (
       property: background-image,
-      class: u-bg,
+      class: map-get($utilities-className, background-image),
       values: (gradient: var(--#{$variable-prefix}gradient))
     ),
     // scss-docs-start utils-interaction
     "user-select": (
       property: user-select,
-      class: u-us,
+      class: map-get($utilities-className, user-select),
       values: (
         all: all,
         a: auto,
@@ -633,7 +633,7 @@ $utilities: map-merge(
     ),
     "pointer-events": (
       property: pointer-events,
-      class: u-pe,
+      class: map-get($utilities-className, pointer-events),
       values: (
         n: none,
         a: auto,
@@ -641,9 +641,9 @@ $utilities: map-merge(
     ),
     // scss-docs-end utils-interaction
     // scss-docs-start utils-border-radius
-    "rounded": (
+    "border-radius": (
       property: border-radius,
-      class: u-bdrs,
+      class: map-get($utilities-className, border-radius),
       values: (
         null: $border-radius,
         0: 0,
@@ -654,37 +654,50 @@ $utilities: map-merge(
         pill: $border-radius-pill
       )
     ),
-    "rounded-top": (
+    "border-radius-top": (
       property: border-top-left-radius border-top-right-radius,
-      class: u-bdrs-top,
+      class: map-get($utilities-className, border-radius-top),
       values: (null: $border-radius)
     ),
-    "rounded-end": (
+    "border-radius-right": (
       property: border-top-right-radius border-bottom-right-radius,
-      class: u-bdrs-right,
+      class: map-get($utilities-className, border-radius-right),
       values: (null: $border-radius)
     ),
-    "rounded-bottom": (
+    "border-radius-bottom": (
       property: border-bottom-right-radius border-bottom-left-radius,
-      class: u-bdrs-bottom,
+      class: map-get($utilities-className, border-radius-bottom),
       values: (null: $border-radius)
     ),
-    "rounded-start": (
+    "border-radius-left": (
       property: border-bottom-left-radius border-top-left-radius,
-      class: u-bdrs-left,
+      class: map-get($utilities-className, border-radius-left),
       values: (null: $border-radius)
     ),
     // scss-docs-end utils-border-radius
     // scss-docs-start utils-visibility
     "visibility": (
       property: visibility,
-      class: u-null,
+      class: map-get($utilities-className, visibility),
       values: (
-        visible: visible,
-        invisible: hidden,
+        v: visible,
+        h: hidden,
+      )
+    ),
+    // scss-docs-end utils-visibility
+    // scss-docs-start utils-z-index
+    "z-index": (
+      property: z-index,
+      class: map-get($utilities-className, z-index),
+      values: (
+        n1: -1,
+        10: 10,
+        100: 100,
+        1000: 1000,
+        10000: 10000,
       )
     )
-    // scss-docs-end utils-visibility
+    // scss-docs-end utils-z-index
   ),
   $utilities
 );
