@@ -16,7 +16,6 @@
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
-// @import "bootstrap/utilities";
 
 
 // Include utilities overrides here
@@ -27,9 +26,10 @@
 // Helpers
 @import "bootstrap/helpers";
 
+
 // Utilities
-@import "bootstrap/utilities/api";
-// @import "_custom-utilities-api-pc-first";
+// @import "bootstrap/utilities/api";
+@import "custom-utilities-api-pc-first";
 
 
 // Add additional custom code here
